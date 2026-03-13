@@ -1,13 +1,16 @@
+/* --- Variáveis Globais --- */
 :root {
     --sky-light: #e0f6ff;
     --sky-dark: #87ceeb;
-    --brand-main: #ff6b00; 
+    --brand-main: #ff6b00; /* Laranja principal */
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
     --text-light: #ffffff;
+    /* Fundo do card mais transparente para o efeito Glassmorphism */
     --card-bg: rgba(255, 255, 255, 0.55); 
 }
 
+/* --- Reset Básico --- */
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +25,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow-x: hidden;
-    padding: 40px 15px; 
+    overflow-x: hidden; /* Evita barra de rolagem horizontal pelas animações */
+    padding: 40px 15px; /* Espaçamento mobile */
 }
 
-/* Background Dinâmico */
+/* --- Background Dinâmico (Hambúrgueres) --- */
 .floating-background {
     position: fixed;
     top: 0;
@@ -34,45 +37,58 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none;
+    pointer-events: none; /* Não atrapalha os cliques no menu */
 }
 
-/* Hambúrguer base (sem blur global para permitir a variação) */
+/* Base do hambúrguer flutuante */
 .burger {
     position: absolute;
+    /* REMOVIDO: border-radius: 50% e filter: blur padrão */
     opacity: 0.7;
     animation: float 15s infinite ease-in-out alternate;
-    border-radius: 50%;
+    /* Adicionada sombra suave projetada pela própria imagem PNG */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); 
 }
 
-/* Variações de Profundidade e Tamanho */
-.b1 { top: 5%; left: 2%; width: 80px; filter: blur(3px); animation-duration: 12s; }
-.b2 { top: 65%; left: 82%; width: 130px; filter: blur(0px); opacity: 0.8; animation-duration: 18s; }
-.b3 { top: 85%; left: 10%; width: 100px; filter: blur(1.5px); animation-duration: 14s; }
-.b4 { top: 15%; left: 75%; width: 60px; filter: blur(6px); opacity: 0.5; animation-duration: 16s; }
+/* --- Configuração Individual de Profundidade (Tamanho e Blur) --- */
 
+/* Mais nítidos e próximos */
+.b1 { top: 5%; left: 5%; width: 90px; filter: blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 12s; }
+.b2 { top: 65%; left: 80%; width: 140px; filter: blur(0px) drop-shadow(0 8px 15px rgba(0,0,0,0.3)); opacity: 0.8; animation-duration: 18s; z-index: 2;} /* O maior */
+.b3 { top: 85%; left: 15%; width: 110px; filter: blur(1.5px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 14s; }
+
+/* Meio-termo */
+.b4 { top: 15%; left: 75%; width: 70px; filter: blur(3px) drop-shadow(0 3px 7px rgba(0,0,0,0.15)); animation-duration: 16s; }
+.b5 { top: 40%; left: 3%; width: 85px; filter: blur(2px) drop-shadow(0 4px 8px rgba(0,0,0,0.18)); animation-duration: 20s; opacity: 0.6; }
+
+/* Mais distantes e borrados */
+.b6 { top: 55%; left: 10%; width: 55px; filter: blur(5px); opacity: 0.4; animation-duration: 13s; }
+.b7 { top: 25%; left: 85%; width: 65px; filter: blur(4px); opacity: 0.5; animation-duration: 17s; }
+.b8 { top: 75%; left: 70%; width: 50px; filter: blur(6px); opacity: 0.4; animation-duration: 19s; }
+
+/* Animação de flutuação */
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(-40px) rotate(20deg); }
 }
 
-/* Container Principal com efeito Glassmorphism */
+/* --- Container Principal (Efeito Vidro) --- */
 .link-container {
-    width: 92%; 
-    max-width: 420px; 
+    width: 92%; /* Dá respiro nas bordas no mobile */
+    max-width: 420px; /* Limita largura no PC */
     background: var(--card-bg);
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); 
-    border: 1px solid rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(12px); /* Borrão do vidro */
+    -webkit-backdrop-filter: blur(12px); /* Suporte Safari */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Borda clara simulando vidro */
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     padding-bottom: 25px;
-    z-index: 1; 
+    z-index: 1; /* Mantém acima do fundo */
     overflow: hidden;
     margin: 0 auto;
 }
 
-/* Cabeçalho */
+/* --- Cabeçalho --- */
 .profile-header {
     text-align: center;
     margin-bottom: 25px;
@@ -81,24 +97,24 @@ body {
 .banner-box {
     width: 100%;
     height: 140px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3); /* Fundo caso imagem demore */
     overflow: hidden;
 }
 
 .banner-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ajusta imagem sem distorcer */
 }
 
 .logo-box {
-    margin-top: -55px; 
+    margin-top: -55px; /* Puxa logo para cima do banner */
 }
 
 .logo-img {
     width: 110px;
     height: 110px;
-    border-radius: 50%;
+    border-radius: 50%; /* Mantém a logo circular */
     border: 4px solid var(--text-light);
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     object-fit: cover;
@@ -120,7 +136,7 @@ body {
     font-weight: 600;
 }
 
-/* Botões */
+/* --- Botões de Link --- */
 .links-nav {
     display: flex;
     flex-direction: column;
@@ -133,7 +149,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.9); 
+    background: rgba(255, 255, 255, 0.9); /* Mais sólido para contraste */
     color: var(--text-dark);
     text-decoration: none;
     padding: 16px;
@@ -144,18 +160,21 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
+/* Hover Interação */
 .link-btn:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     background: #ffffff;
 }
 
+/* Estilo para ícones PNG dentro do botão */
 .btn-icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 
+/* Botão Destaque (Cardápio) */
 .main-btn {
     position: relative;
     background: var(--brand-main);
@@ -189,6 +208,7 @@ body {
     opacity: 0.9;
 }
 
+/* Tag "Clique aqui!" */
 .badge {
     position: absolute;
     top: -12px;
@@ -203,20 +223,21 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Animação Pulso do Cardápio */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
 }
 
-/* Rodapé */
+/* --- Rodapé --- */
 .social-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 35px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05); 
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Linha divisória sutil */
     margin-left: 25px;
     margin-right: 25px;
 }

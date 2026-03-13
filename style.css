@@ -5,7 +5,6 @@
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
     --text-light: #ffffff;
-    /* Fundo agora é mais transparente para o efeito de vidro */
     --card-bg: rgba(255, 255, 255, 0.55); 
 }
 
@@ -24,7 +23,7 @@ body {
     align-items: center;
     position: relative;
     overflow-x: hidden;
-    padding: 40px 15px; /* Aumentei o espaço em cima e embaixo */
+    padding: 40px 15px; 
 }
 
 /* Background Dinâmico */
@@ -38,18 +37,19 @@ body {
     pointer-events: none;
 }
 
+/* Hambúrguer base (sem blur global para permitir a variação) */
 .burger {
     position: absolute;
-    filter: blur(4px); /* Borrão um pouco mais forte para dar profundidade */
     opacity: 0.7;
     animation: float 15s infinite ease-in-out alternate;
     border-radius: 50%;
 }
 
-.b1 { top: 5%; left: 2%; width: 80px; animation-duration: 12s; }
-.b2 { top: 65%; left: 82%; width: 110px; animation-duration: 18s; }
-.b3 { top: 85%; left: 10%; width: 90px; animation-duration: 14s; }
-.b4 { top: 15%; left: 75%; width: 70px; animation-duration: 16s; }
+/* Variações de Profundidade e Tamanho */
+.b1 { top: 5%; left: 2%; width: 80px; filter: blur(3px); animation-duration: 12s; }
+.b2 { top: 65%; left: 82%; width: 130px; filter: blur(0px); opacity: 0.8; animation-duration: 18s; }
+.b3 { top: 85%; left: 10%; width: 100px; filter: blur(1.5px); animation-duration: 14s; }
+.b4 { top: 15%; left: 75%; width: 60px; filter: blur(6px); opacity: 0.5; animation-duration: 16s; }
 
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); }
@@ -58,12 +58,12 @@ body {
 
 /* Container Principal com efeito Glassmorphism */
 .link-container {
-    width: 92%; /* Não encosta mais nas bordas do celular */
+    width: 92%; 
     max-width: 420px; 
     background: var(--card-bg);
-    backdrop-filter: blur(12px); /* Borrão do vidro */
-    -webkit-backdrop-filter: blur(12px); /* Suporte para Safari/iOS */
-    border: 1px solid rgba(255, 255, 255, 0.7); /* Borda clarinha simulando vidro */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.7); 
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     padding-bottom: 25px;
@@ -133,7 +133,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.9); /* Fundo mais sólido para dar contraste com o vidro */
+    background: rgba(255, 255, 255, 0.9); 
     color: var(--text-dark);
     text-decoration: none;
     padding: 16px;
@@ -216,7 +216,7 @@ body {
     align-items: center;
     margin-top: 35px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Linha sutil separando os botões do rodapé */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); 
     margin-left: 25px;
     margin-right: 25px;
 }

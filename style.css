@@ -1,15 +1,14 @@
-/* --- Variáveis Globais de Cor e Estilo --- */
 :root {
     --sky-light: #e0f6ff;
     --sky-dark: #87ceeb;
-    --brand-main: #ff6b00; /* Laranja apetitoso para o botão principal */
+    --brand-main: #ff6b00; 
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
     --text-light: #ffffff;
-    --card-bg: rgba(255, 255, 255, 0.85); /* Fundo branco levemente transparente */
+    /* Fundo agora é mais transparente para o efeito de vidro */
+    --card-bg: rgba(255, 255, 255, 0.55); 
 }
 
-/* --- Reset Básico --- */
 * {
     margin: 0;
     padding: 0;
@@ -24,11 +23,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow-x: hidden; /* Evita rolagem horizontal pelas animações */
-    padding: 20px 15px;
+    overflow-x: hidden;
+    padding: 40px 15px; /* Aumentei o espaço em cima e embaixo */
 }
 
-/* --- Background Dinâmico (Hambúrgueres Flutuantes) --- */
+/* Background Dinâmico */
 .floating-background {
     position: fixed;
     top: 0;
@@ -36,42 +35,44 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none; /* Para não atrapalhar o clique nos links */
+    pointer-events: none;
 }
 
 .burger {
     position: absolute;
-    filter: blur(3px); /* Efeito levemente borrado */
-    opacity: 0.6;
+    filter: blur(4px); /* Borrão um pouco mais forte para dar profundidade */
+    opacity: 0.7;
     animation: float 15s infinite ease-in-out alternate;
     border-radius: 50%;
 }
 
-/* Posições e atrasos diferentes para não ficarem sincronizados */
-.b1 { top: 10%; left: 5%; width: 80px; animation-duration: 12s; }
-.b2 { top: 60%; left: 85%; width: 110px; animation-duration: 18s; }
-.b3 { top: 80%; left: 15%; width: 90px; animation-duration: 14s; }
-.b4 { top: 20%; left: 75%; width: 70px; animation-duration: 16s; }
+.b1 { top: 5%; left: 2%; width: 80px; animation-duration: 12s; }
+.b2 { top: 65%; left: 82%; width: 110px; animation-duration: 18s; }
+.b3 { top: 85%; left: 10%; width: 90px; animation-duration: 14s; }
+.b4 { top: 15%; left: 75%; width: 70px; animation-duration: 16s; }
 
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-30px) rotate(15deg); }
+    100% { transform: translateY(-40px) rotate(20deg); }
 }
 
-/* --- Container Principal --- */
+/* Container Principal com efeito Glassmorphism */
 .link-container {
-    width: 100%;
-    max-width: 480px; /* Mobile First: Limita a largura no PC para parecer de celular */
+    width: 92%; /* Não encosta mais nas bordas do celular */
+    max-width: 420px; 
     background: var(--card-bg);
-    backdrop-filter: blur(10px); /* Efeito de vidro fosco no fundo */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding-bottom: 30px;
-    z-index: 1; /* Mantém o conteúdo acima do fundo animado */
+    backdrop-filter: blur(12px); /* Borrão do vidro */
+    -webkit-backdrop-filter: blur(12px); /* Suporte para Safari/iOS */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Borda clarinha simulando vidro */
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    padding-bottom: 25px;
+    z-index: 1; 
     overflow: hidden;
+    margin: 0 auto;
 }
 
-/* --- Cabeçalho e Perfil --- */
+/* Cabeçalho */
 .profile-header {
     text-align: center;
     margin-bottom: 25px;
@@ -80,8 +81,8 @@ body {
 .banner-box {
     width: 100%;
     height: 140px;
+    background-color: rgba(255, 255, 255, 0.3);
     overflow: hidden;
-    background-color: #ddd; /* Cor de fundo caso a imagem demore a carregar */
 }
 
 .banner-img {
@@ -91,7 +92,7 @@ body {
 }
 
 .logo-box {
-    margin-top: -55px; /* Puxa a logo para cima do banner */
+    margin-top: -55px; 
 }
 
 .logo-img {
@@ -99,7 +100,7 @@ body {
     height: 110px;
     border-radius: 50%;
     border: 4px solid var(--text-light);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     object-fit: cover;
     background-color: #fff;
 }
@@ -113,13 +114,13 @@ body {
 
 .profile-subtitle {
     font-size: 0.9rem;
-    color: #555;
+    color: #444;
     padding: 0 20px;
     margin-top: 5px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
-/* --- Botões de Link --- */
+/* Botões */
 .links-nav {
     display: flex;
     flex-direction: column;
@@ -132,7 +133,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--text-light);
+    background: rgba(255, 255, 255, 0.9); /* Fundo mais sólido para dar contraste com o vidro */
     color: var(--text-dark);
     text-decoration: none;
     padding: 16px;
@@ -140,24 +141,21 @@ body {
     font-weight: 600;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    border: 1px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Interação de Hover para todos os botões */
 .link-btn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    background: #fdfdfd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    background: #ffffff;
 }
 
-/* Estilo específico para os ícones personalizados em imagem */
 .btn-icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 
-/* Botão Principal Destaque (Cardápio) */
 .main-btn {
     position: relative;
     background: var(--brand-main);
@@ -191,12 +189,11 @@ body {
     opacity: 0.9;
 }
 
-/* Tag "Clique aqui!" */
 .badge {
     position: absolute;
     top: -12px;
     right: 15px;
-    background: #27ae60; /* Verde chamativo */
+    background: #27ae60; 
     color: white;
     font-size: 0.7rem;
     font-weight: 700;
@@ -206,37 +203,54 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Efeito de pulso para chamar atenção pro Cardápio */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
 }
 
-/* --- Rodapé (Redes Sociais) --- */
+/* Rodapé */
 .social-footer {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
     margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Linha sutil separando os botões do rodapé */
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.social-icons-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 .social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: var(--text-dark);
+    width: 40px;
+    height: 40px;
+    background: rgba(44, 62, 80, 0.8);
     color: var(--text-light);
     border-radius: 50%;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover {
     transform: translateY(-5px);
     background: var(--brand-main);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.copyright-text {
+    font-size: 0.7rem;
+    color: #555;
+    font-weight: 600;
+    text-align: center;
 }

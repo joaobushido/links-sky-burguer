@@ -1,16 +1,14 @@
-/* --- Variáveis Globais --- */
 :root {
     --sky-light: #e0f6ff;
     --sky-dark: #87ceeb;
-    --brand-main: #ff6b00; /* Laranja da Brendi/Pedido Direto */
+    --brand-main: #ff6b00; 
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
-    --text-grey: #666666; /* Novo Cinza para o texto dos botões secundários */
+    --text-grey: #666666; 
     --text-light: #ffffff;
     --card-bg: rgba(255, 255, 255, 0.55); 
 }
 
-/* --- Reset Básico --- */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +27,6 @@ body {
     padding: 40px 15px; 
 }
 
-/* --- Background Dinâmico (Hambúrgueres) --- */
 .floating-background {
     position: fixed;
     top: 0;
@@ -47,7 +44,6 @@ body {
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); 
 }
 
-/* Variações de Profundidade */
 .b1 { top: 5%; left: 5%; width: 90px; filter: blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 12s; }
 .b2 { top: 65%; left: 80%; width: 140px; filter: blur(0px) drop-shadow(0 8px 15px rgba(0,0,0,0.3)); opacity: 0.8; animation-duration: 18s; z-index: 2;} 
 .b3 { top: 85%; left: 15%; width: 110px; filter: blur(1.5px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 14s; }
@@ -62,7 +58,6 @@ body {
     100% { transform: translateY(-40px) rotate(20deg); }
 }
 
-/* --- Container Principal (Efeito Vidro) --- */
 .link-container {
     width: 92%; 
     max-width: 420px; 
@@ -78,7 +73,6 @@ body {
     margin: 0 auto;
 }
 
-/* --- Cabeçalho --- */
 .profile-header {
     text-align: center;
     margin-bottom: 25px;
@@ -126,7 +120,6 @@ body {
     font-weight: 600;
 }
 
-/* --- Botões de Link --- */
 .links-nav {
     display: flex;
     flex-direction: column;
@@ -162,14 +155,13 @@ body {
     object-fit: contain;
 }
 
-/* Botão Destaque Brendi */
 .main-btn {
     position: relative;
     background: var(--brand-main);
     color: var(--text-light);
     border: none;
     padding: 18px;
-    margin-bottom: 5px; /* Reduzi a margem para ficar mais perto do iFood/99 */
+    margin-bottom: 5px; 
     animation: pulse 2s infinite;
 }
 
@@ -208,7 +200,6 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
 }
 
-/* --- Área iFood e 99 (Lado a Lado) --- */
 .platform-links {
     display: flex;
     gap: 12px;
@@ -216,9 +207,9 @@ body {
 }
 
 .platform-btn {
-    flex: 1; /* Garante que dividem o espaço igualmente (50/50) */
+    flex: 1; 
     display: flex;
-    flex-direction: column; /* Coloca ícone em cima do texto */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     padding: 12px;
@@ -227,7 +218,6 @@ body {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    /* Removidas as cores de fundo genéricas */
 }
 
 .platform-btn:hover {
@@ -235,36 +225,34 @@ body {
 }
 
 .platform-icon {
-    width: 40px; /* Ícone um pouco maior já que é vertical */
+    width: 40px; 
     height: 40px;
     object-fit: contain;
-    margin-bottom: 8px; /* Espaço entre ícone e texto */
+    margin-bottom: 8px; 
 }
 
 .platform-btn span {
-    font-size: 0.7rem; /* Texto menor para caber */
+    font-size: 0.7rem; 
     font-weight: 600;
     line-height: 1.2;
 }
 
-/* ATUALIZADO: Estilo Específico iFood com Fundo Branco */
+/* iFood */
 .ifood-btn {
-    background-color: #ffffff; /* Fundo Branco */
-    color: var(--text-grey); /* Escrita Cinza */
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda clarinha para destacar do vidro */
+    background-color: #ffffff; 
+    color: var(--text-grey); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
 }
 .ifood-btn:hover { background-color: #fdfdfd; }
 
-/* ATUALIZADO: Estilo Específico 99 com Fundo Branco */
-.99-btn {
-    background-color: #ffffff; /* Fundo Branco */
-    color: var(--text-grey); /* Escrita Cinza */
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda clarinha */
+/* CORREÇÃO: Classe alterada para .app99-btn */
+.app99-btn {
+    background-color: #ffffff; 
+    color: var(--text-grey); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
 }
-.99-btn:hover { background-color: #fdfdfd; }
+.app99-btn:hover { background-color: #fdfdfd; }
 
-
-/* --- Rodapé --- */
 .social-footer {
     display: flex;
     flex-direction: column;

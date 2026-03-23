@@ -2,12 +2,16 @@
 :root {
     --sky-light: #e0f6ff;
     --sky-dark: #87ceeb;
-    --brand-main: #ff6b00; /* Laranja principal */
+    --brand-main: #ff6b00; /* Laranja da Brendi/Pedido Direto */
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
     --text-light: #ffffff;
-    /* Fundo do card mais transparente para o efeito Glassmorphism */
     --card-bg: rgba(255, 255, 255, 0.55); 
+    
+    /* Novas Cores das Plataformas */
+    --ifood-red: #ea1d2c;
+    --99-yellow: #FFC800;
+    --99-text: #2C3E50;
 }
 
 /* --- Reset Básico --- */
@@ -25,8 +29,8 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal pelas animações */
-    padding: 40px 15px; /* Espaçamento mobile */
+    overflow-x: hidden;
+    padding: 40px 15px; 
 }
 
 /* --- Background Dinâmico (Hambúrgueres) --- */
@@ -37,36 +41,26 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none; /* Não atrapalha os cliques no menu */
+    pointer-events: none;
 }
 
-/* Base do hambúrguer flutuante */
 .burger {
     position: absolute;
-    /* REMOVIDO: border-radius: 50% e filter: blur padrão */
     opacity: 0.7;
     animation: float 15s infinite ease-in-out alternate;
-    /* Adicionada sombra suave projetada pela própria imagem PNG */
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); 
 }
 
-/* --- Configuração Individual de Profundidade (Tamanho e Blur) --- */
-
-/* Mais nítidos e próximos */
+/* Variações de Profundidade */
 .b1 { top: 5%; left: 5%; width: 90px; filter: blur(1px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 12s; }
-.b2 { top: 65%; left: 80%; width: 140px; filter: blur(0px) drop-shadow(0 8px 15px rgba(0,0,0,0.3)); opacity: 0.8; animation-duration: 18s; z-index: 2;} /* O maior */
+.b2 { top: 65%; left: 80%; width: 140px; filter: blur(0px) drop-shadow(0 8px 15px rgba(0,0,0,0.3)); opacity: 0.8; animation-duration: 18s; z-index: 2;} 
 .b3 { top: 85%; left: 15%; width: 110px; filter: blur(1.5px) drop-shadow(0 5px 10px rgba(0,0,0,0.2)); animation-duration: 14s; }
-
-/* Meio-termo */
 .b4 { top: 15%; left: 75%; width: 70px; filter: blur(3px) drop-shadow(0 3px 7px rgba(0,0,0,0.15)); animation-duration: 16s; }
 .b5 { top: 40%; left: 3%; width: 85px; filter: blur(2px) drop-shadow(0 4px 8px rgba(0,0,0,0.18)); animation-duration: 20s; opacity: 0.6; }
-
-/* Mais distantes e borrados */
 .b6 { top: 55%; left: 10%; width: 55px; filter: blur(5px); opacity: 0.4; animation-duration: 13s; }
 .b7 { top: 25%; left: 85%; width: 65px; filter: blur(4px); opacity: 0.5; animation-duration: 17s; }
 .b8 { top: 75%; left: 70%; width: 50px; filter: blur(6px); opacity: 0.4; animation-duration: 19s; }
 
-/* Animação de flutuação */
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(-40px) rotate(20deg); }
@@ -74,16 +68,16 @@ body {
 
 /* --- Container Principal (Efeito Vidro) --- */
 .link-container {
-    width: 92%; /* Dá respiro nas bordas no mobile */
-    max-width: 420px; /* Limita largura no PC */
+    width: 92%; 
+    max-width: 420px; 
     background: var(--card-bg);
-    backdrop-filter: blur(12px); /* Borrão do vidro */
-    -webkit-backdrop-filter: blur(12px); /* Suporte Safari */
-    border: 1px solid rgba(255, 255, 255, 0.7); /* Borda clara simulando vidro */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.7); 
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     padding-bottom: 25px;
-    z-index: 1; /* Mantém acima do fundo */
+    z-index: 1; 
     overflow: hidden;
     margin: 0 auto;
 }
@@ -97,24 +91,24 @@ body {
 .banner-box {
     width: 100%;
     height: 140px;
-    background-color: rgba(255, 255, 255, 0.3); /* Fundo caso imagem demore */
+    background-color: rgba(255, 255, 255, 0.3);
     overflow: hidden;
 }
 
 .banner-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta imagem sem distorcer */
+    object-fit: cover;
 }
 
 .logo-box {
-    margin-top: -55px; /* Puxa logo para cima do banner */
+    margin-top: -55px; 
 }
 
 .logo-img {
     width: 110px;
     height: 110px;
-    border-radius: 50%; /* Mantém a logo circular */
+    border-radius: 50%;
     border: 4px solid var(--text-light);
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     object-fit: cover;
@@ -149,7 +143,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.9); /* Mais sólido para contraste */
+    background: rgba(255, 255, 255, 0.9); 
     color: var(--text-dark);
     text-decoration: none;
     padding: 16px;
@@ -160,28 +154,26 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Hover Interação */
 .link-btn:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     background: #ffffff;
 }
 
-/* Estilo para ícones PNG dentro do botão */
 .btn-icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 
-/* Botão Destaque (Cardápio) */
+/* Botão Destaque Brendi */
 .main-btn {
     position: relative;
     background: var(--brand-main);
     color: var(--text-light);
     border: none;
     padding: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduzi a margem para ficar mais perto do iFood/99 */
     animation: pulse 2s infinite;
 }
 
@@ -197,18 +189,9 @@ body {
     line-height: 1.2;
 }
 
-.main-btn .btn-content strong {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-}
+.main-btn .btn-content strong { font-size: 1.2rem; text-transform: uppercase; }
+.main-btn .btn-content span { font-size: 0.75rem; font-weight: 400; opacity: 0.9; }
 
-.main-btn .btn-content span {
-    font-size: 0.75rem;
-    font-weight: 400;
-    opacity: 0.9;
-}
-
-/* Tag "Clique aqui!" */
 .badge {
     position: absolute;
     top: -12px;
@@ -223,12 +206,64 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Animação Pulso do Cardápio */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
 }
+
+/* --- Área iFood e 99 (Lado a Lado) --- */
+.platform-links {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.platform-btn {
+    flex: 1; /* Garante que dividem o espaço igualmente (50/50) */
+    display: flex;
+    flex-direction: column; /* Coloca ícone em cima do texto */
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.platform-btn:hover {
+    transform: translateY(-3px);
+}
+
+.platform-icon {
+    width: 40px; /* Ícone um pouco maior já que é vertical */
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 8px; /* Espaço entre ícone e texto */
+}
+
+.platform-btn span {
+    font-size: 0.7rem; /* Texto menor para caber */
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Estilo Específico iFood */
+.ifood-btn {
+    background-color: var(--ifood-red);
+    color: white;
+}
+.ifood-btn:hover { background-color: #d11a27; }
+
+/* Estilo Específico 99 */
+.99-btn {
+    background-color: var(--99-yellow);
+    color: var(--99-text);
+}
+.99-btn:hover { background-color: #e6b400; }
+
 
 /* --- Rodapé --- */
 .social-footer {
@@ -237,7 +272,7 @@ body {
     align-items: center;
     margin-top: 35px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Linha divisória sutil */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); 
     margin-left: 25px;
     margin-right: 25px;
 }

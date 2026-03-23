@@ -5,13 +5,9 @@
     --brand-main: #ff6b00; /* Laranja da Brendi/Pedido Direto */
     --brand-hover: #ff8533;
     --text-dark: #2c3e50;
+    --text-grey: #666666; /* Novo Cinza para o texto dos botões secundários */
     --text-light: #ffffff;
     --card-bg: rgba(255, 255, 255, 0.55); 
-    
-    /* Novas Cores das Plataformas */
-    --ifood-red: #ea1d2c;
-    --99-yellow: #FFC800;
-    --99-text: #2C3E50;
 }
 
 /* --- Reset Básico --- */
@@ -231,6 +227,7 @@ body {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    /* Removidas as cores de fundo genéricas */
 }
 
 .platform-btn:hover {
@@ -250,19 +247,21 @@ body {
     line-height: 1.2;
 }
 
-/* Estilo Específico iFood */
+/* ATUALIZADO: Estilo Específico iFood com Fundo Branco */
 .ifood-btn {
-    background-color: var(--ifood-red);
-    color: white;
+    background-color: #ffffff; /* Fundo Branco */
+    color: var(--text-grey); /* Escrita Cinza */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda clarinha para destacar do vidro */
 }
-.ifood-btn:hover { background-color: #d11a27; }
+.ifood-btn:hover { background-color: #fdfdfd; }
 
-/* Estilo Específico 99 */
+/* ATUALIZADO: Estilo Específico 99 com Fundo Branco */
 .99-btn {
-    background-color: var(--99-yellow);
-    color: var(--99-text);
+    background-color: #ffffff; /* Fundo Branco */
+    color: var(--text-grey); /* Escrita Cinza */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda clarinha */
 }
-.99-btn:hover { background-color: #e6b400; }
+.99-btn:hover { background-color: #fdfdfd; }
 
 
 /* --- Rodapé --- */

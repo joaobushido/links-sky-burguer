@@ -36,6 +36,20 @@
         </header>
 
         <nav class="links-nav">
+            
+            <div class="countdown-box" id="countdown-container">
+                <div class="countdown-header">
+                    🚀 Grande Inauguração em:
+                </div>
+                <div class="countdown-timer" id="timer">
+                    Calculando o tempo...
+                </div>
+                <div class="countdown-warning" id="warning-text">
+                    Pedidos liberados a partir do dia <strong>23/04 às 18h</strong><br>
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+            </div>
+
             <a href="LINK_DA_BRENDI_AQUI" target="_blank" class="link-btn main-btn">
                 <span class="badge">Clique aqui!</span>
                 <div class="btn-content">
@@ -81,6 +95,37 @@
         </footer>
 
     </main>
+
+    <script>
+        // Define a data exata da inauguração: 23 de Abril de 2026 às 18:00 (Fuso horário de Brasília -03:00)
+        const dataInauguracao = new Date("2026-04-23T18:00:00-03:00").getTime();
+
+        const elementoTimer = document.getElementById("timer");
+        const elementoAviso = document.getElementById("warning-text");
+
+        // Atualiza o timer a cada 1 segundo (1000 milissegundos)
+        const intervaloTimer = setInterval(function() {
+            const agora = new Date().getTime();
+            const distancia = dataInauguracao - agora;
+
+            // Se a contagem zerar (chegou a hora!)
+            if (distancia < 0) {
+                clearInterval(intervaloTimer);
+                elementoTimer.innerHTML = "🍔 ESTAMOS ABERTOS!";
+                elementoAviso.innerHTML = "Clique nos botões abaixo e faça seu pedido!<br><i class='fas fa-arrow-down'></i>";
+                return;
+            }
+
+            // Cálculos matemáticos para dias, horas, minutos e segundos
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            // Exibe o resultado na tela
+            elementoTimer.innerHTML = `${dias} dias, ${horas}h e ${minutos}m`;
+        }, 1000);
+    </script>
 
 </body>
 </html>

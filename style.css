@@ -120,6 +120,28 @@ body {
     font-weight: 600;
 }
 
+/* NOVO: Estilo do Aviso de Retirada */
+.pickup-warning {
+    background-color: rgba(234, 29, 44, 0.08); /* Fundo avermelhado super leve */
+    border: 1px solid rgba(234, 29, 44, 0.2);
+    color: #d11a27;
+    font-size: 0.75rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 15px 25px 0;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.pickup-warning strong {
+    font-weight: 700;
+}
+
+.pickup-warning i {
+    margin-right: 3px;
+}
+
 .links-nav {
     display: flex;
     flex-direction: column;
@@ -198,6 +220,28 @@ body {
     0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+}
+
+/* NOVO: Indicador de Delivery sobre os apps */
+.delivery-indicator {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--brand-main);
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    animation: bounce-small 2s infinite;
+}
+
+.delivery-indicator i {
+    margin: 0 4px;
+}
+
+@keyframes bounce-small {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-4px); }
+    60% { transform: translateY(-2px); }
 }
 
 .platform-links {

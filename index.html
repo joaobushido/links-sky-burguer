@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sky's Burguer BH | Rumo ao Hexa 2026</title>
+    <title>Sky's Burguer BH | Rumo ao Hexa</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Bungee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,18 +11,31 @@
 </head>
 <body>
 
+    <div id="confetti-container"></div>
+
     <div class="floating-background">
         <img src="img/hamburguer-flutuante.png" class="item b1" alt="Burguer">
         <img src="img/hamburguer-flutuante.png" class="item b2" alt="Burguer">
         <img src="img/hamburguer-flutuante.png" class="item b3" alt="Burguer">
         <div class="item t1"><i class="fas fa-trophy"></i></div>
-        <div class="item s1"><i class="fas fa-soccer-ball"></i></div>
+        <div class="item s1"><i class="fas fa-futbol"></i></div>
         <div class="item t2"><i class="fas fa-trophy"></i></div>
-        <div class="item s2"><i class="fas fa-soccer-ball"></i></div>
+        <div class="item s2"><i class="fas fa-futbol"></i></div>
         <div class="item flag-item"><i class="fas fa-flag"></i></div>
     </div>
 
     <main class="link-container">
+        
+        <div class="bunting-container">
+            <div class="bunting green"></div>
+            <div class="bunting yellow"></div>
+            <div class="bunting blue"></div>
+            <div class="bunting green"></div>
+            <div class="bunting yellow"></div>
+            <div class="bunting blue"></div>
+            <div class="bunting green"></div>
+            <div class="bunting yellow"></div>
+        </div>
         
         <header class="profile-header">
             <div class="banner-box">
@@ -33,13 +46,13 @@
                 <img src="img/sua-logo.png" alt="Logo Sky's Burguer" class="logo-img">
             </div>
             <h1 class="profile-title">Sky's Burguer <span>BH</span></h1>
-            <p class="profile-subtitle">"O sabor dos campeões, rumo ao Hexa com o melhor hambúrguer de BH!" 🇧🇷</p>
+            <p class="profile-subtitle">"O sabor dos céus, no céu da sua boca em clima de Hexa!" 🇧🇷🍔</p>
             
             <div class="pickup-warning">
-                <div class="warning-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
                 <div class="warning-text">
-                    <strong>CONVOCAÇÃO PARA RETIRADA:</strong><br>
-                    Pedidos na Brendi (botão ouro) são exclusivos para <strong>consumo no local ou busca</strong>.
+                    <strong>AVISO IMPORTANTE:</strong><br>
+                    Pedidos no botão dourado abaixo são <strong>somente para retirada ou consumo no local</strong>. <br>Para entrega/delivery, use o iFood ou 99Food.
                 </div>
             </div>
         </header>
@@ -56,35 +69,35 @@
 
             <div class="delivery-indicator">
                 <span class="line"></span>
-                <span class="label"><i class="fas fa-shipping-fast"></i> DELIVERY / ENTREGA</span>
+                <span class="label"><i class="fas fa-motorcycle"></i> DELIVERY / ENTREGA <i class="fas fa-arrow-down"></i></span>
                 <span class="line"></span>
             </div>
 
             <div class="platform-links">
                 <a href="https://www.ifood.com.br/delivery/belo-horizonte-mg/skys-burguer-urca/f4975eb5-6678-404b-9860-3439c72b2010?UTM_Medium=share" target="_blank" class="platform-btn ifood-btn">
                     <img src="img/icone-ifood.png" alt="iFood" class="platform-icon">
-                    Peça no iFood
+                    <span>Peça pelo iFood</span>
                 </a>
                 
                 <a href="https://oia.99app.com/dlp9/3Rr0hm" target="_blank" class="platform-btn app99-btn">
                     <img src="img/icone-99.png" alt="99 Food" class="platform-icon">
-                    Peça no 99
+                    <span>Peça pelo 99</span>
                 </a>
             </div>
 
             <a href="https://wa.me/message/CHAABNUDDRULC1" target="_blank" class="link-btn">
                 <i class="fab fa-whatsapp btn-icon-fa"></i>
-                Dúvidas no Zap da Galera
+                Fale com a gente
             </a>
             
             <a href="https://www.instagram.com/skyburguerbh/" target="_blank" class="link-btn">
                 <i class="fab fa-instagram btn-icon-fa"></i>
-                Nosso Var (Instagram)
+                Siga nosso Instagram
             </a>
             
             <a href="#" class="link-btn">
                 <i class="fas fa-award btn-icon-fa"></i>
-                Dê sua nota de Craque
+                Avalie nosso Delivery
             </a>
         </nav>
 
@@ -97,6 +110,24 @@
         </footer>
 
     </main>
+
+    <script>
+        function createConfetti() {
+            const colors = ['#009739', '#FFDF00', '#002776'];
+            const container = document.getElementById('confetti-container');
+            
+            for (let i = 0; i < 40; i++) {
+                let conf = document.createElement('div');
+                conf.className = 'confetti';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animationDuration = (Math.random() * 3 + 2.5) + 's'; // Velocidade da queda
+                conf.style.animationDelay = Math.random() * 5 + 's'; // Atraso para não cair tudo junto
+                container.appendChild(conf);
+            }
+        }
+        createConfetti();
+    </script>
 
 </body>
 </html>
